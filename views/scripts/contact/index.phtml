@@ -1,0 +1,84 @@
+<?php
+/**
+ * View
+ *
+ * @category  CodeBlender
+ * @package   Core
+ * @copyright Copyright (c) 2000-2011 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
+ * @license   http://codeblender.net/license
+ */
+// Title
+$this->title = 'Contact Triangle Solutions';
+?>
+
+<h1>Contact Us</h1>
+
+<?php
+// Display the Form
+if ($this->valid) {
+
+    echo $this->layout_Message(array(
+        'class' => 'msgSuccess',
+        'title' => 'Email Sent',
+        'text' => 'Thank you your mail has been sent, please expect a response in the next 24hrs.'
+    ));
+
+    // Clear the form values
+    $this->form->setDefaults(array(
+        'name' => '', 'email' => '', 'phone' => '', 'subject' => 'Questions', 'comment' => '', 'captcha' => ''
+    ));
+} else {
+    ?>
+    <h2>Please use the form below to send a direct email. We will do our best to respond to your query ASAP.</h2>
+    <?php
+}
+?>
+
+<div class="row">
+
+    <div class="colLeft"><?php echo $this->form; ?></div>
+
+    <div class="colRight">
+
+        <h3>Contact Options</h3>
+
+        <p>Talk to Triangle Solutions directly to see how we can help your business today.</p>
+
+        <h3>Telephone</h3>
+
+        <?php echo $this->layout_Image(array('alt' => 'UK Number', 'height' => 11, 'path' => '/icons/gb.gif', 'width' => 16)); ?>&nbsp;
+        <a href="skype:+442081332378?call" title="Skype Out Call">+44 20 8133 2378</a><br />
+        <?php echo $this->layout_Image(array('alt' => 'US Number', 'height' => 11, 'path' => '/icons/us.gif', 'width' => 16)); ?>&nbsp;
+        <a href="skype:+13477481816?call" title="Skype Out Call">+1 347 748 1816</a>
+
+        <h3>
+            <a href="skype:iwarner_gb?call" title="Skype Call">
+                <img src="http://download.skype.com/share/skypebuttons/buttons/call_blue_white_124x52.png" alt="Skype Triangle" title="Skype Triangle" />
+            </a>
+        </h3>
+
+        <p>
+            <a href="skype:iwarner_gb?add" title="Add to Skype Contacts">+ Add us to your Skype contacts</a>
+        </p>
+
+        <h3>Social Options</h3>
+
+        <div class="featuresList">
+            <ul>
+
+                <li class="featureTwitter">
+                    <b>Follow us on Twitter</b>. To keep up with the latest goings on.<br />
+                    <a href="http://twitter.com/SocialTriangle" title="Follow Triangle on Twitter.">Follow Triangle on Twitter.</a>
+                </li>
+
+                <li class="featureFacebook">
+                    <b>Join our Facebook page</b>.<br />
+                    <a href="http://www.facebook.com/pages/Triangle-Solutions-Ltd/11174821836" title="Follow Triangle on Facebook.">Triangle Solutions on Facebook.</a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>

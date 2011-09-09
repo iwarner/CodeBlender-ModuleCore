@@ -1,0 +1,81 @@
+<?php
+/**
+ * View to create the Settings page.
+ *
+ * @category  CodeBlender
+ * @package   Core
+ * @copyright Copyright (c) 2000-2010 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
+ * @license   http://codeblender.net/license
+ */
+?>
+
+Constants<br />
+
+<ul>
+    <li>Site Name: <?php echo CODEBLENDER_SITENAME ?></li>
+    <li>Environment: <?php echo CODEBLENDER_APPLICATION_ENV ?></li>
+    <li>Root Directory: <?php echo CODEBLENDER_ROOT_DIR ?></li>
+    <li>Application Directory: <?php echo APPLICATION_PATH ?></li>
+    <li>Library Directory: <?php echo CODEBLENDER_LIB_DIR ?></li>
+    <li>Public Directory: <?php echo CODEBLENDER_PUB_DIR ?></li>
+    <li>Temp Directory: <?php echo CODEBLENDER_TEMP_DIR ?></li>
+    <li>Application Config: <?php echo CODEBLENDER_APP_CONFIG ?></li>
+</ul>
+
+<br />
+View Variables
+
+<ul>
+    <li>Asset Path: <?php echo $this->assetPath ?></li>
+    <li>Image Path: <?php echo $this->imagePath ?></li>
+    <li>Style Path: <?php echo $this->stylePath ?></li>
+    <li>Script Path: <?php echo $this->scriptPath ?></li>
+    <li>Icon Path: <?php echo $this->iconPath ?></li>
+</ul>
+
+<br />
+Auth Credentials
+
+<ul>
+
+<?php
+if ($this->credentials) {
+
+    foreach ($this->credentials as $k => $v) {
+        echo '<li>' . $k . ': ' . $v . '</li>';
+    }
+}
+?>
+
+</ul>
+
+<br />
+Session
+
+<ul>
+
+<?php
+if ($this->session) {
+    foreach ($this->session as $k => $v) {
+        //echo '<li>' . $this->session->$k . ': ' . $v . '</li>';
+    }
+}
+?>
+
+</ul>
+
+<br />
+Request
+
+<ul>
+
+<?php
+if ($_REQUEST) {
+
+    foreach ($_REQUEST as $k => $v) {
+        echo '<li>' . $k . ': ' . $v . '</li>';
+    }
+}
+?>
+
+</ul>

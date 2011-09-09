@@ -1,0 +1,33 @@
+<?php
+/**
+ * View to display the Error page
+ *
+ * @category  CodeBlender
+ * @package   Core
+ * @copyright Copyright (c) 2000-2010 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
+ * @license   http://codeblender.net/license
+ */
+?>
+
+<h1>An error occurred</h1>
+<h2><?php echo $this->message ?></h2>
+
+<?php
+if ($this->exception) {
+    ?>
+    <h3>Exception information:</h3>
+
+    <p>
+        <b>Message:</b> <?php echo $this->exception->getMessage() ?>
+    </p>
+
+    <h3>Stack trace:</h3>
+
+    <pre><?php echo $this->exception->getTraceAsString() ?></pre>
+
+    <h3>Request Parameters:</h3>
+
+    <pre><?php var_dump($this->request->getParams()) ?></pre>
+    <?php
+}
+?>

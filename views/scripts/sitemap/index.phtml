@@ -1,0 +1,62 @@
+<?php
+/**
+ * View to create the Site Map page.
+ *
+ * @category  CodeBlender
+ * @package   Core
+ * @copyright Copyright (c) 2000-2010 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
+ * @license   http://codeblender.net/license
+ */
+// Create the required Meta Elements
+$this->headMeta()->setName('description', 'site map');
+$this->headMeta()->setName('keywords', 'site map');
+
+// Create the required Site Title
+$this->title = 'Site Map';
+
+?>
+
+<div id="content">
+
+    <h1>Site Map</h1>
+
+    <div class="fList">
+        <?php echo $this->navigation(); ?>
+    </div>
+
+    <p>
+        <a href="/core/sitemap/download" title="Download Sitemap">Download Sitemap</a>
+    </p>
+
+</div>
+
+<div id="sideColumn">
+
+    <div class="socialElements">
+
+        <div class="twitterLike">
+            <a href="http://twitter.com/share" class="twitter-share-button">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        </div>
+
+    </div>
+
+    <div class="featuresList">
+
+        <ul>
+
+            <li class="featureTwitter">
+                <b>Follow us on Twitter</b>. To keep up with the latest goings on at Triangle HQ.<br /><br />
+                <a href="http://twitter.com/SocialTriangle" title="Follow Triangle on Twitter.">Follow Triangle on Twitter.</a>
+            </li>
+
+            <li class="featureFacebook">
+                <b>Social Development</b>. Networks such as Facebook can be utilised for building strong and instant brand awareness. Creation of
+                pages and applications coupled with intelligent seeding can assist traditional campaigns. Utilising analytics we can track
+                and target further promotions to this user base. <a href="/social" title="Social development">More...</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
