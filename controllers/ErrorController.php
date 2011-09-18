@@ -5,7 +5,7 @@
  *
  * @category  CodeBlender
  * @package   Core
- * @copyright Copyright (c) 2000-2011 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
+ * @copyright Copyright (c) 2011 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
  * @license   http://codeblender.net/license
  */
 
@@ -14,7 +14,7 @@
  *
  * @category  CodeBlender
  * @package   Core
- * @copyright Copyright (c) 2000-2011 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
+ * @copyright Copyright (c) 2011 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
  * @license   http://codeblender.net/license
  *
  * @todo Errors should direct to a 404 script
