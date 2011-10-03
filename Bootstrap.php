@@ -5,7 +5,7 @@
  *
  * @category  CodeBlender
  * @package   BootStrap
- * @copyright Copyright (c) 2000-2010 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
+ * @copyright Copyright (c) 2011 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
  * @license   http://codeblender.net/license
  */
 
@@ -14,7 +14,7 @@
  *
  * @category  CodeBlender
  * @package   BootStrap
- * @copyright Copyright (c) 2000-2010 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
+ * @copyright Copyright (c) 2011 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
  * @license   http://codeblender.net/license
  */
 class Core_Bootstrap extends Zend_Application_Module_Bootstrap
@@ -29,9 +29,9 @@ class Core_Bootstrap extends Zend_Application_Module_Bootstrap
     {
         // Set the auto load for the Default Module.
         $moduleLoader = new Zend_Application_Module_Autoloader(array(
-                    'namespace' => 'Core',
-                    'basePath' => APPLICATION_PATH . '/modules/core'
-                ));
+                'namespace' => 'Core',
+                'basePath' => APPLICATION_PATH . '/modules/core'
+            ));
 
         return $moduleLoader;
     }

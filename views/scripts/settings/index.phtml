@@ -4,7 +4,7 @@
  *
  * @category  CodeBlender
  * @package   Core
- * @copyright Copyright (c) 2000-2010 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
+ * @copyright Copyright (c) 2011 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
  * @license   http://codeblender.net/license
  */
 ?>
@@ -38,14 +38,14 @@ Auth Credentials
 
 <ul>
 
-<?php
-if ($this->credentials) {
+    <?php
+    if ($this->credentials) {
 
-    foreach ($this->credentials as $k => $v) {
-        echo '<li>' . $k . ': ' . $v . '</li>';
+        foreach ($this->credentials as $k => $v) {
+            echo '<li>' . $k . ': ' . $v . '</li>';
+        }
     }
-}
-?>
+    ?>
 
 </ul>
 
@@ -54,13 +54,13 @@ Session
 
 <ul>
 
-<?php
-if ($this->session) {
-    foreach ($this->session as $k => $v) {
-        //echo '<li>' . $this->session->$k . ': ' . $v . '</li>';
+    <?php
+    if ($this->session) {
+        foreach ($this->session as $k => $v) {
+            //echo '<li>' . $this->session->$k . ': ' . $v . '</li>';
+        }
     }
-}
-?>
+    ?>
 
 </ul>
 
@@ -69,13 +69,13 @@ Request
 
 <ul>
 
-<?php
-if ($_REQUEST) {
+    <?php
+    if ($_REQUEST) {
 
-    foreach ($_REQUEST as $k => $v) {
-        echo '<li>' . $k . ': ' . $v . '</li>';
+        foreach ($_REQUEST as $k => $v) {
+            echo '<li>' . $k . ': ' . $v . '</li>';
+        }
     }
-}
-?>
+    ?>
 
 </ul>
