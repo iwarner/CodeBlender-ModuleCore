@@ -21,7 +21,7 @@ class Core_SitemapController extends Zend_Controller_Action
 {
 
     /**
-     * Provides a simple form for the users to contact us.
+     * Provides a simple form for the user to contact us.
      *
      * @return object
      */
