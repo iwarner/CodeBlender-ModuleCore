@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * View
+ *
+ * @category  CodeBlender
+ * @package   Core
+ * @copyright Copyright (c) 2011 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
+ * @license   http://codeblender.net/license
+ */
+$this->title = 'Forgot Details';
+
+echo '<h2>Lost your Account Details?</h2>
+      Please enter your e-mail address below.<br />A new password will then be sent to you, with which you can log in again.';
+
+// Display the Form
+if ($this->valid) {
+
+    // Clear the form values
+    $this->form->setDefaults(array('lostDetailsEmail' => ''));
+
+    echo '<br /><br />' . $this->layout_Message(array(
+        'class' => $this->messageType,
+        'title' => $this->messageTitle,
+        'text' => $this->messageText
+    ));
+}
+
+echo $this->form;

@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * View
+ *
+ * @category  CodeBlender
+ * @package   Core
+ * @copyright Copyright (c) 2011 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
+ * @license   http://codeblender.net/license
+ */
+$this->title = 'Register';
+
+if ($this->messageType) {
+    echo '<br />' . $this->layout_Message(array(
+        'class' => $this->messageType,
+        'title' => $this->messageTitle,
+        'text' => $this->messageText
+    ));
+}

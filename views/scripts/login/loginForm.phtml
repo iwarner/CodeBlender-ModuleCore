@@ -1,0 +1,38 @@
+<?php
+/**
+ * View
+ *
+ * @category  CodeBlender
+ * @package   Core
+ * @copyright Copyright (c) 2011 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
+ * @license   http://codeblender.net/license
+ */
+?>
+
+<div id="login">
+
+    <form method="<?php echo $this->element->getMethod(); ?>" action="<?php echo $this->element->getAction(); ?>" id="<?php echo $this->element->getName(); ?>">
+
+        <p class="email">
+            <?php echo $this->element->email; ?>
+        </p>
+
+        <p class="password">
+            <?php echo $this->element->password; ?>
+        </p>
+
+        <?php echo $this->element->rememberMe; ?>
+        <?php echo $this->element->submit; ?>
+    </form>
+
+    <?php
+    if ($this->showLostPassword) {
+        ?>
+        <p class="lostPassword">
+            <a href="/user/forgotdetails" title="Lost your password">Lost your password?</a>
+        </p>
+        <?php
+    }
+    ?>
+
+</div>

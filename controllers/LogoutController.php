@@ -17,7 +17,7 @@
  * @copyright Copyright (c) 2011 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
  * @license   http://codeblender.net/license
  */
-class Core_SettingsController extends Zend_Controller_Action
+class Core_LogoutController extends Zend_Controller_Action
 {
 
     /**
@@ -25,16 +25,15 @@ class Core_SettingsController extends Zend_Controller_Action
      */
     public function indexAction()
     {
-        // Get the session
-        $this->view->session = new Zend_Session_Namespace(CODEBLENDER_SITENAME);
+        // Set the script to not render to any view
+        $this->_helper->viewRenderer->setNoRender();
+        $this->_helper->layout->disableLayout();
 
-        // Get the Auth Instance
-        $auth = Zend_Auth::getInstance();
+        // Clear the identity and redirect to the Index page
+        Zend_Auth::getInstance()->setStorage(new Zend_Auth_Storage_Session(CODEBLENDER_SITENAME))->clearIdentity();
 
-        // Check to see if this user is manager and then ascertain teams they manage
-        if ($auth->hasIdentity()) {
-            $this->view->credentials = $auth->getIdentity();
-        }
+        // Redirect the user accordingly
+        $this->_helper->getHelper('Redirector')->gotoUrl('index');
     }
 
 }

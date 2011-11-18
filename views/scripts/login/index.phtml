@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * View
+ *
+ * @category  CodeBlender
+ * @package   Core
+ * @copyright Copyright (c) 2011 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
+ * @license   http://codeblender.net/license
+ *
+ * @todo Check that the session is being used securely
+ * @todo Align the Remeber me checkbox correctly
+ * @todo Allow for the use of OpenID / Facebook Connect etc
+ * @todo Currently limited to Email / Password combination for verification expand this by maybe putting fields in Config
+ * @todo Set up translation so the messages can be easily translated
+ * @todo Login controller needs to work with a Form outside of the normal Login Form.
+ * @todo Move the Verify User to a Model
+ * @todo The Messages dont work use the Flash Messenger Helper that Zend Provides.
+ * @todo Expand this to use an adaptor driven from the Config file, or the ability for a site to use multiple adaptors.
+ * @todo Expand the retained storage fields to be driven from the config.
+ * @todo Test whether the Remember Me works
+ * @todo Tests to make sure the Session is secure etc.
+ */
+$this->title = 'Login';
+
+if ($this->messageType) {
+    echo '<br />' . $this->layout_Message(array(
+        'class' => $this->messageType,
+        'title' => $this->messageTitle,
+        'text' => $this->messageText
+    ));
+}
+
+echo $this->form;

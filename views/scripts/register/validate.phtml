@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * View
+ *
+ * @category  CodeBlender
+ * @package   Core
+ * @copyright Copyright (c) 2011 Triangle Solutions Ltd. (http://www.triangle-solutions.com/)
+ * @license   http://codeblender.net/license
+ */
+$this->title = 'Verify Registration';
+
+$string = '<h2>Verify Registration</h2>';
+
+// Create the correct text to show on the validation page
+if ($this->result) {
+    $text = 'Thank you, your account has been validated and you may now <a href="/user/login" title="Login">login</a>';
+    $class = 'msgSuccess';
+} else {
+    $text = 'Sorry the validation code is incorrect please following the link again or make sure the whole code is pasted correctly
+              into the address bar. Failing that please register again or contact technical support.';
+    $class = 'msgError';
+}
+
+// Box to show the validation text
+$html = <<<HTML
+  {$this->layout_Message(array('class' => $class, 'text' => $text))}
+HTML;
+
+$string .= $this->registerForm . $html;
+
+// Output
+echo $string;
