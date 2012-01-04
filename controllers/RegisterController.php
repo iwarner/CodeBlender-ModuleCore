@@ -38,9 +38,9 @@ class Core_RegisterController extends Zend_Controller_Action
         if (!empty($this->config['classRegisterForm'])) {
             $formClass = $this->config['classRegisterForm'];
 
-            // Default is User_Form_RegisterForm
+            // Default is Core_Form_RegisterForm
         } else {
-            $formClass = 'User_Form_RegisterForm';
+            $formClass = 'Core_Form_RegisterForm';
         }
 
         // Set the view script path from the config if it exists

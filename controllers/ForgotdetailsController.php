@@ -34,7 +34,7 @@ class Core_ForgotdetailsController extends Zend_Controller_Action
         }
 
         // Render Form
-        $this->view->form = new User_Form_LostdetailsForm();
+        $this->view->form = new Core_Form_LostdetailsForm();
 
         // Check to see if this controller receives a POST
         if ($this->getRequest()->isPost()) {

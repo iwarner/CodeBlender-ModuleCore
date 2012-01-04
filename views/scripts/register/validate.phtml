@@ -1,5 +1,4 @@
 <?php
-
 /**
  * View
  *
@@ -14,7 +13,7 @@ $string = '<h2>Verify Registration</h2>';
 
 // Create the correct text to show on the validation page
 if ($this->result) {
-    $text = 'Thank you, your account has been validated and you may now <a href="/user/login" title="Login">login</a>';
+    $text = 'Thank you, your account has been validated and you may now <a href="/core/login" title="Login">login</a>';
     $class = 'msgSuccess';
 } else {
     $text = 'Sorry the validation code is incorrect please following the link again or make sure the whole code is pasted correctly

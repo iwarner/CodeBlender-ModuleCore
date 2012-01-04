@@ -25,16 +25,16 @@ class Core_LoginController extends Zend_Controller_Action
      */
     public function preDispatch()
     {
-        // Get the Auth Instance
+        // Auth Instance
         $auth = Zend_Auth::getInstance();
 
         // Config
         $this->config = $this->getInvokeArg('bootstrap')->getOption('user');
 
-        // Check if this user is logged in
+        // User logged in
         if ($auth->hasIdentity()) {
 
-            // Redirect the user accordingly
+            // Redirect the User
             $this->_helper->getHelper('Redirector')->gotoUrl($this->config['pathLoginSuccess']);
         }
     }
@@ -45,11 +45,11 @@ class Core_LoginController extends Zend_Controller_Action
     public function indexAction()
     {
         // Get the class name / path for the login form to use default is
-        // User_Form_LoginForm - Instantiate Form.
+        // Core_Form_LoginForm - Instantiate Form.
         if (!empty($this->config['classLoginForm'])) {
             $formClass = $this->config['classLoginForm'];
         } else {
-            $formClass = 'User_Form_LoginForm';
+            $formClass = 'Core_Form_LoginForm';
         }
 
         // Set the view script path from the config if it exists
@@ -73,7 +73,7 @@ class Core_LoginController extends Zend_Controller_Action
                     // Redirect to the Index Action - default/index/complete
                     $this->_helper->redirector->gotoUrl($this->config['pathLoginSuccess']);
                 } else {
-                    $this->view->messageType = 'msgError';
+                    $this->view->messageType = 'error';
                     $this->view->messageTitle = 'Login Failure';
                     $this->view->messageText = 'Login Failed, please try again make sure Caps Lock is not on.
                       Your account may still need validation; please check your email.';
@@ -85,37 +85,38 @@ class Core_LoginController extends Zend_Controller_Action
             }
         }
 
-        $this->_helper->layout->setLayout('login');
+//        $this->_helper->layout->setPartial('login');
+////        $this->_helper->layout->setLayout('login');
     }
 
     /**
-     * Method to create and setup the Auth Adaptor
+     * Auth Adaptor
      *
      * @return object
      */
     private function _getAuthAdaptor()
     {
+        $table = 'user';
+
         // Set up Table
         if (isset($this->config['memberTable'])) {
             $table = $this->config['memberTable'];
-        } else {
-            $table = 'user';
         }
 
         // Instantiate the DbTable auth Adapter and set credentials Make sure status is Active also
         $authAdapter = new Zend_Auth_Adapter_DbTable(Zend_Db_Table::getDefaultAdapter());
         $authAdapter->setTableName($table)
-                ->setIdentityColumn('email')
-                ->setCredentialColumn('password')
-                ->setCredentialTreatment('MD5(?) AND status = "Active"');
+            ->setIdentityColumn('email')
+            ->setCredentialColumn('password')
+            ->setCredentialTreatment('MD5(?) AND status = "Active"');
 
         return $authAdapter;
     }
 
     /**
-     * Method to Verify the login credentials
+     * Verify the login credentials
      *
-     * Currently uses the Database Adaptor
+     * Uses the Database Adaptor
      *
      * @param  string $email    User email address
      * @param  string $password User password
@@ -131,7 +132,7 @@ class Core_LoginController extends Zend_Controller_Action
 
             // Set the details through the AuthAdaptor
             $authAdapter->setIdentity($email)
-                    ->setCredential($password);
+                ->setCredential($password);
 
             // Get an instance of Zend Auth
             $auth = Zend_Auth::getInstance();
@@ -140,10 +141,14 @@ class Core_LoginController extends Zend_Controller_Action
             $auth->setStorage(new Zend_Auth_Storage_Session(CODEBLENDER_SITENAME));
 
             // Perform the authentication query, saving the result
-            $result = $auth->authenticate($authAdapter);
+            try {
+                $result = $auth->authenticate($authAdapter);
+            } catch (Zend_Exception $e) {
+                Zend_Debug::dump($e->getMessage());
+            }
 
             // If a result is found then the
-            if ($result->isValid()) {
+            if (isset($result) && $result->isValid()) {
 
                 // Store the identity as an object where only the username and real_name have been returned
                 $auth->getStorage()->write($authAdapter->getResultRowObject(array('id', 'type', 'email', 'fname', 'sname')));
@@ -157,8 +162,8 @@ class Core_LoginController extends Zend_Controller_Action
 
                 return true;
 
-            // Cant find a user that matches these user and pass combination
-            // Clear the identiy and return false
+                // Cant find a user that matches these user and pass combination
+                // Clear the identiy and return false
             } else {
                 $auth->clearIdentity();
                 return false;

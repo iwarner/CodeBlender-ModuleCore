@@ -27,7 +27,7 @@ class Core_Form_RegisterForm extends Zend_Form
     {
         // Set general properties of the form
         $this->setName('registerForm')
-                ->setAction('/user/register')
+                ->setAction('/core/register')
                 ->setMethod('post');
 
         // registerFirstName Element - ValidationTextBox
@@ -104,7 +104,7 @@ class Core_Form_RegisterForm extends Zend_Form
             'required' => false
         ));
 
-        $this->registerSubmit->setDescription('<br /><a href="/user/forgotdetails" title="Lost Account Details">Lost Account Details?</a>');
+        $this->registerSubmit->setDescription('<br /><a href="/core/forgotdetails" title="Lost Account Details">Lost Account Details?</a>');
         $this->registerSubmit->addDecorators(array(
             array('Description', array('escape' => false, 'placement' => 'append')),
             array('HtmlTag', array('tag' => 'div', 'class' => 'submit'))

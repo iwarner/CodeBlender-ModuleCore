@@ -30,7 +30,7 @@ class Core_Form_LostDetailsForm extends Zend_Form
 
         // Set ID of the form
         $this->setName('lostDetailsForm')
-                ->setAction('/user/forgotdetails')
+                ->setAction('/core/forgotdetails')
                 ->setMethod('post');
 
         $this->addElement('ValidationTextBox', 'lostDetailsEmail', array(

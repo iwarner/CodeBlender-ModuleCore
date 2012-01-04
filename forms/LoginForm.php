@@ -25,39 +25,44 @@ class Core_Form_LoginForm extends Zend_Form
      */
     public function init()
     {
+        // Translation
+        $translate = Zend_Registry::get('Zend_Translate');
+
         // Form Attributes
         $this->setName('loginForm')
-                ->setAction('/user/login')
-                ->setMethod('post');
+            ->setAction('/core/login')
+            ->setMethod('post');
 
         // Email
         $this->addElement('text', 'email', array(
             'filters' => array('StringToLower'),
-            'label' => 'Email',
+            'label' => $translate->_('loginEmail'),
             'required' => true,
             'validators' => array('EmailAddress')
         ));
 
         // Password
         $this->addElement('password', 'password', array(
-            'label' => 'Password',
+            'label' => $translate->_('loginPassword'),
             'required' => true,
             'validators' => array(array('regex', false, array('/^[a-zA-Z0-9_=]{6,20}$/i')))
         ));
 
         $this->addElement('checkbox', 'rememberMe', array(
             'class' => 'rememberMe',
-            'label' => 'Remember Me',
+            'label' => $translate->_('loginRemember'),
             'checkedValue' => true,
             'uncheckedValue' => false,
             'value' => false
         ));
 
+        $this->rememberMe->setDescription('Forgot Details');
+
         // Submit
         $this->addElement('submit', 'submit', array(
             'class' => 'button-primary',
             'ignore' => true,
-            'label' => 'Log In',
+            'label' => $translate->_('loginLogIn'),
             'required' => false
         ));
 
@@ -66,7 +71,8 @@ class Core_Form_LoginForm extends Zend_Form
         $this->setElementDecorators(array(
             'ViewHelper',
             'Errors',
-            'Label'
+            'Label',
+            'Description'
         ));
 
         $this->rememberMe->addDecorator('Label', array('class' => 'rememberMeLabel'));

@@ -21,7 +21,7 @@ class Core_Bootstrap extends Zend_Application_Module_Bootstrap
 {
 
     /**
-     * Bootstrap autoloader for application resources
+     * Autoloader
      *
      * @return Zend_Application_Module_Autoloader
      */
